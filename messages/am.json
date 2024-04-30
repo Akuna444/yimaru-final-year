@@ -1,0 +1,20 @@
+{
+  "Index": {
+    "inProgress": "በሂደት ለይ ያሉ",
+    "completed": "የተጠናቀቁ",
+    "courseLength": "ኮርሶች",
+    "noCourseFound": "ምንም ኮርሶች እልተገኙም"
+  },
+  "Nav": {
+    "teacherMode": "እንደ አስተማሪ",
+    "exit": "ይውጡ",
+    "dashboard": "ዳሽቦርድ",
+    "browse": "አስስ",
+    "course": "ኮርሶች",
+    "analytics": "ዝርዝሮች"
+  },
+  "LocaleSwitcher": {
+    "label": "ቁንቋ ይቀይሩ",
+    "locale": "{locale, select, am {et አማርኛ} en {🇺🇸 English} other {Unknown}}"
+  }
+}

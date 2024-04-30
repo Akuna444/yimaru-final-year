@@ -4,6 +4,7 @@ import { BarChart, Compass, Layout, List } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SidebarItem } from "./sidebar-item";
+import { useTranslations } from "next-intl";
 
 const guestRoutes = [
   {
@@ -29,10 +30,37 @@ const teacherRoutes = [
     label: "Analytics",
     href: "/teacher/analytics",
   },
-]
+];
 
 export const SidebarRoutes = () => {
   const pathname = usePathname();
+  const t = useTranslations("Nav");
+
+  const guestRoutes = [
+    {
+      icon: Layout,
+      label: t("dashboard"),
+      href: "/",
+    },
+    {
+      icon: Compass,
+      label: t("browse"),
+      href: "/search",
+    },
+  ];
+
+  const teacherRoutes = [
+    {
+      icon: List,
+      label: t("browse"),
+      href: "/teacher/courses",
+    },
+    {
+      icon: BarChart,
+      label: t("analytics"),
+      href: "/teacher/analytics",
+    },
+  ];
 
   const isTeacherPage = pathname?.includes("/teacher");
 
@@ -49,5 +77,5 @@ export const SidebarRoutes = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+};

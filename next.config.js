@@ -1,10 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: [
-      "utfs.io"
-    ]
-  }
-}
+const withNextIntl = require("next-intl/plugin")();
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+const config = {
+  images: {
+    domains: ["utfs.io"],
+  },
+};
+
+module.exports = withNextIntl(config);

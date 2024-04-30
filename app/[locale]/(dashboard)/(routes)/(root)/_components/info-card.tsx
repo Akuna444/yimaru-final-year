@@ -1,6 +1,7 @@
 import { LucideIcon } from "lucide-react";
 
-import { IconBadge } from "@/components/icon-badge"
+import { IconBadge } from "@/components/icon-badge";
+import { getTranslations } from "next-intl/server";
 
 interface InfoCardProps {
   numberOfItems: number;
@@ -9,26 +10,22 @@ interface InfoCardProps {
   icon: LucideIcon;
 }
 
-export const InfoCard = ({
+export const InfoCard = async ({
   variant,
   icon: Icon,
   numberOfItems,
   label,
 }: InfoCardProps) => {
+  const t = await getTranslations("Index");
   return (
     <div className="border rounded-md flex items-center gap-x-2 p-3">
-      <IconBadge
-        variant={variant}
-        icon={Icon}
-      />
+      <IconBadge variant={variant} icon={Icon} />
       <div>
-        <p className="font-medium">
-          {label}
-        </p>
+        <p className="font-medium">{label}</p>
         <p className="text-gray-500 text-sm">
-          {numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
+          {numberOfItems} {t("courseLength")}
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
