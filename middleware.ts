@@ -1,6 +1,3 @@
-// This example protects all routes including api/trpc routes
-// Please edit this to allow other routes to be public as needed.
-// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your middleware
 import { authMiddleware } from "@clerk/nextjs/server";
 
 import createMiddleware from "next-intl/middleware";
@@ -18,9 +15,9 @@ export default authMiddleware({
   },
 
   // Ensure that locale specific sign-in pages are public
-  publicRoutes: ["/", "/api/webhook", "/:locale/sign-in"],
+  publicRoutes: ["/", "/:locale/sign-in"],
 });
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
