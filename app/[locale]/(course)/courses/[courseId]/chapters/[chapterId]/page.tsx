@@ -10,17 +10,18 @@ import { Preview } from "@/components/preview";
 import { VideoPlayer } from "./_components/video-player";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { CourseProgressButton } from "./_components/course-progress-button";
+import Link from "next/link";
 
 const ChapterIdPage = async ({
-  params
+  params,
 }: {
-  params: { courseId: string; chapterId: string }
+  params: { courseId: string; chapterId: string };
 }) => {
   const { userId } = auth();
-  
+
   if (!userId) {
     return redirect("/");
-  } 
+  }
 
   const {
     chapter,
@@ -37,20 +38,16 @@ const ChapterIdPage = async ({
   });
 
   if (!chapter || !course) {
-    return redirect("/")
+    return redirect("/");
   }
-
 
   const isLocked = !chapter.isFree && !purchase;
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
-  return ( 
+  return (
     <div>
       {userProgress?.isCompleted && (
-        <Banner
-          variant="success"
-          label="You already completed this chapter."
-        />
+        <Banner variant="success" label="You already completed this chapter." />
       )}
       {isLocked && (
         <Banner
@@ -72,9 +69,7 @@ const ChapterIdPage = async ({
         </div>
         <div>
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">
-            <h2 className="text-2xl font-semibold mb-2">
-              {chapter.title}
-            </h2>
+            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
             {purchase ? (
               <CourseProgressButton
                 chapterId={params.chapterId}
@@ -98,25 +93,26 @@ const ChapterIdPage = async ({
               <Separator />
               <div className="p-4">
                 {attachments.map((attachment) => (
-                  <a 
+                  <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
                     className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline"
                   >
                     <File />
-                    <p className="line-clamp-1">
-                      {attachment.name}
-                    </p>
+                    <p className="line-clamp-1">{attachment.name}</p>
                   </a>
                 ))}
+                <Link href={`/en/yimaru-ai/${attachments[0].id}`}>
+                  Chat with yimaruAI
+                </Link>
               </div>
             </>
           )}
         </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default ChapterIdPage;

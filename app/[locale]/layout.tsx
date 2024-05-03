@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/providers/toaster-provider";
 import { ConfettiProvider } from "@/components/providers/confetti-provider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,13 +25,15 @@ export default function LocaleLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <ConfettiProvider />
-          <ToastProvider />
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </body>
+        <Providers>
+          <body className={inter.className}>
+            <ConfettiProvider />
+            <ToastProvider />
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </body>
+        </Providers>
       </html>
     </ClerkProvider>
   );

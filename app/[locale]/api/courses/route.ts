@@ -3,11 +3,12 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 import { isTeacher } from "@/lib/teacher";
+console.log("aim urnnin2g");
 
-export async function POST(
-  req: Request,
-) {
+export async function POST(req: Request) {
+  console.log("aim urnnin2g");
   try {
+    console.log("aim urnning");
     const { userId } = auth();
     const { title } = await req.json();
 
@@ -19,7 +20,7 @@ export async function POST(
       data: {
         userId,
         title,
-      }
+      },
     });
 
     return NextResponse.json(course);

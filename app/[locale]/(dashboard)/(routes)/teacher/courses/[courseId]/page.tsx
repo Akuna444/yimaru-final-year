@@ -52,7 +52,13 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
-  console.log("cate", categories);
+  if (categories.length === 0) {
+    await db.category.create({
+      data: {
+        name: "All",
+      },
+    });
+  }
 
   if (!course) {
     return redirect("/");

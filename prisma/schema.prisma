@@ -10,6 +10,12 @@ generator client {
   // previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
+model User {
+  id    String @id @unique //matches kinde user id
+   email String @unique
+  Message Message[]
+}
+
 model Course {
   id String @id @default(uuid())
   userId String
@@ -38,14 +44,21 @@ model Category {
   name String @unique
   courses Course[]
 }
+enum UploadStatus {
+  PENDING
+  PROCESSING
+  FAILED
+  SUCCESS
+}
 
 model Attachment {
   id String @id @default(uuid())
   name String
   url String @db.Text
-
+  uploadStatus UploadStatus @default(PENDING)
   courseId String
   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  messages Message[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -123,3 +136,18 @@ model StripeCustomer {
   updatedAt DateTime @updatedAt
 }
 
+
+
+model Message {
+  id   String @id @default(cuid())
+  text String @db.Text()
+
+  isUserMessage Boolean
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  Attachment      Attachment?    @relation(fields: [attachmentId], references: [id])
+  attachmentId   String?
+}
