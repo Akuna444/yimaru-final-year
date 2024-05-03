@@ -11,6 +11,8 @@ import { VideoPlayer } from "./_components/video-player";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { CourseProgressButton } from "./_components/course-progress-button";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
 
 const ChapterIdPage = async ({
   params,
@@ -103,9 +105,14 @@ const ChapterIdPage = async ({
                     <p className="line-clamp-1">{attachment.name}</p>
                   </a>
                 ))}
-                <Link href={`/en/yimaru-ai/${attachments[0].id}`}>
-                  Chat with yimaruAI
-                </Link>
+                <div className="my-5">
+                  <Link href={`/yimaru-ai/${attachments[0].id}`}>
+                    <Button>
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Chat with YimaruAI
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </>
           )}
