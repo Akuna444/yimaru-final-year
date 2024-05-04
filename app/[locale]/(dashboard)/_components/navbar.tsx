@@ -2,6 +2,8 @@ import { NavbarRoutes } from "@/components/navbar-routes";
 
 import { MobileSidebar } from "./mobile-sidebar";
 import LanguageSwitcher from "./language-switcher";
+import { Button } from "@/components/ui/button";
+
 import Link from "next/link";
 import { TimerIcon } from "lucide-react";
 export const Navbar = () => {
@@ -10,9 +12,9 @@ export const Navbar = () => {
       {" "}
       <MobileSidebar />{" "}
       <Link href="/quiz/history">
-        <div className="flex">
+        <Button size="sm" variant="ghost">
           <TimerIcon /> <span>Quiz History</span>
-        </div>
+        </Button>
       </Link>
       <NavbarRoutes />
       <LanguageSwitcher />

@@ -14,7 +14,6 @@ import { useTranslations } from "next-intl";
 export const NavbarRoutes = () => {
   const t = useTranslations("Nav");
   const { userId } = useAuth();
-  console.log(userId, "usa");
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.startsWith("/teacher");
