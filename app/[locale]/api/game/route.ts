@@ -164,9 +164,8 @@ export async function GET(req: Request, res: Response) {
       }
     );
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
-      { error: `An unexpected error occurred.` },
+      { error: `An unexpected error occurred. ${error.message}` },
       {
         status: 500,
       }
