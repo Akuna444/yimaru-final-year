@@ -7,7 +7,6 @@ import { ChevronLeft, Loader2, XCircle } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { ChatContextProvider } from "./ChatContext";
-console.log("this istrrr", trpc);
 interface ChatWrapperProps {
   attachmentId: string;
 }
@@ -19,15 +18,12 @@ const ChatWrapper = ({ attachmentId }: ChatWrapperProps) => {
     },
     {
       refetchInterval: (data) => {
-        console.log("date", data);
         return data?.status === "SUCCESS" || data?.status === "FAILED"
           ? false
           : 500;
       },
     }
   );
-
-  console.log(isLoading, data, "what");
 
   if (isLoading)
     return (
