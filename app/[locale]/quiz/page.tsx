@@ -1,7 +1,7 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import QuizCreation from "@/components/forms/QuizCreation";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export const metadata = {
   title: "YimaruAI Quiz",

@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { openai } from "@/lib/openai";
 import { SendMessageValidator } from "@/lib/validators/SendMessageValidator";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { PineconeStore } from "@langchain/pinecone";
 import { Pinecone } from "@pinecone-database/pinecone";

@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
@@ -22,11 +22,11 @@ const CoursesPage = async () => {
     },
   });
 
-  return ( 
+  return (
     <div className="p-6">
       <DataTable columns={columns} data={courses} />
     </div>
-   );
-}
- 
+  );
+};
+
 export default CoursesPage;

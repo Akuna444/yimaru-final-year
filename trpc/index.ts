@@ -3,7 +3,7 @@ import { TRPCError } from "@trpc/server";
 import { db } from "@/lib/db";
 import { z } from "zod";
 import { INFINITE_QUERY_LIMIT } from "@/config/infinite-query";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
