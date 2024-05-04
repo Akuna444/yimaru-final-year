@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import axios from "axios";
 import { auth } from "@clerk/nextjs";
-import { getLocale } from "next-intl/server";
-import Error from "next/error";
 
 export async function POST(req: Request, res: Response) {
   try {
@@ -166,8 +164,9 @@ export async function GET(req: Request, res: Response) {
       }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
-      { error: `An unexpected error occurred. ${error.message}` },
+      { error: `An unexpected error occurred.` },
       {
         status: 500,
       }
