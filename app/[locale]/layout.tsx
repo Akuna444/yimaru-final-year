@@ -24,7 +24,7 @@ export default function LocaleLayout({
   const messages = useMessages();
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang={locale}>
         <Providers>
           <body className={inter.className}>
             <ConfettiProvider />
