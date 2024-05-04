@@ -8,16 +8,15 @@ import { auth } from "@clerk/nextjs";
 export async function POST(req: Request, res: Response) {
   try {
     const { userId } = auth();
-    // if (!userId) {
-    //   return NextResponse.json(
-    //     { error: "You must be logged in to create a game." },
-    //     {
-    //       status: 401,
-    //     }
-    //   );
-    // }
+    if (!userId) {
+      return NextResponse.json(
+        { error: "You must be logged in to create a game." },
+        {
+          status: 401,
+        }
+      );
+    }
 
-    console.log("this is running");
     const body = await req.json();
     const { topic, type, amount } = quizCreationSchema.parse(body);
     const game = await db.game.create({
