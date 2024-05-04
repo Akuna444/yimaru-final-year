@@ -4,8 +4,8 @@ import QuizCreation from "@/components/forms/QuizCreation";
 import { auth } from "@clerk/nextjs";
 
 export const metadata = {
-  title: "Quiz | QuizWiz",
-  description: "Quiz yourself on anything!",
+  title: "YimaruAI Quiz",
+  description: "Quiz yourself with YimaruAI",
 };
 
 interface Props {
