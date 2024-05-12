@@ -16,5 +16,5 @@ export default clerkMiddleware((auth, req) => {
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ["/", "/(am|en)/:path*"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
