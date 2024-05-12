@@ -7,11 +7,21 @@
   },
   "Nav": {
     "teacherMode": "እንደ አስተማሪ",
+    "quizHistory": "የጥያቄ ታሪክ",
     "exit": "ይውጡ",
     "dashboard": "ዳሽቦርድ",
     "browse": "አስስ",
     "course": "ኮርሶች",
     "analytics": "ዝርዝሮች"
+  },
+  "Course": {
+    "percentageComplete": "ተጠናቋል",
+    "chatWithYimaru": "ከይማሩAI ጋር ያውሩ",
+    "quizWithYimaru": "ከይማሩAI ጋር ይፈተኑ",
+    "notCompleted": "አላጠናከኩም",
+    "markAsCompleted": "እጠናቀው",
+    "bannerCompleted": "ይህን ምዕራፍ ተጠናቋል",
+    "bannerPurchase": "ይህንን ለማግኘት ይክፈሉ"
   },
   "LocaleSwitcher": {
     "label": "ቁንቋ ይቀይሩ",

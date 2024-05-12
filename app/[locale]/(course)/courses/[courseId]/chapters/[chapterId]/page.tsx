@@ -13,6 +13,8 @@ import { CourseProgressButton } from "./_components/course-progress-button";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FileQuestion, MessageCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const ChapterIdPage = async ({
   params,
@@ -20,6 +22,7 @@ const ChapterIdPage = async ({
   params: { courseId: string; chapterId: string };
 }) => {
   const { userId } = auth();
+  const t = await getTranslations("Course");
 
   if (!userId) {
     return redirect("/");
@@ -49,14 +52,9 @@ const ChapterIdPage = async ({
   return (
     <div>
       {userProgress?.isCompleted && (
-        <Banner variant="success" label="You already completed this chapter." />
+        <Banner variant="success" label={t("bannerCompleted")} />
       )}
-      {isLocked && (
-        <Banner
-          variant="warning"
-          label="You need to purchase this course to watch this chapter."
-        />
-      )}
+      {isLocked && <Banner variant="warning" label={t("bannerPurchase")} />}
       <div className="flex flex-col max-w-4xl mx-auto pb-20">
         <div className="p-4">
           <VideoPlayer
@@ -109,13 +107,13 @@ const ChapterIdPage = async ({
                   <Link href={`/yimaru-ai/${attachments[0].id}`}>
                     <Button>
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Chat with YimaruAI
+                      {t("chatWithYimaru")}
                     </Button>
                   </Link>
                   <Link href={`/quiz?topic=${chapter.title}`}>
                     <Button>
                       <FileQuestion className="h-4 w-4 mr-2" />
-                      Quiz with YimaruAi
+                      {t("quizWithYimaru")}
                     </Button>
                   </Link>
                 </div>

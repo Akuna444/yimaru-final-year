@@ -7,11 +7,21 @@
   },
   "Nav": {
     "teacherMode": "Teacher Mode",
+    "quizHistory": "Quiz History",
     "exit": "Exit",
     "dashboard": "Dashboard",
     "browse": "Browse",
     "course": "Courses",
     "analytics": "Analytics"
+  },
+  "Course": {
+    "percentageComplete": "Complete",
+    "chatWithYimaru": "Chat with YimaruAI",
+    "quizWithYimaru": "Quiz with YimaruAI",
+    "notCompleted": "Not completed",
+    "markAsCompleted": "Mark as Completed",
+    "bannerCompleted": "You already finished this chapter",
+    "bannerPurchase": "You have to purchase first"
   },
   "LocaleSwitcher": {
     "label": "Change language",
