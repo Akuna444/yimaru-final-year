@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -27,8 +28,8 @@ const formSchema = z.object({
 });
 
 const CreatePage = () => {
-  console.log("hey");
   const router = useRouter();
+  const t = useTranslations("CourseCreate");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,11 +52,8 @@ const CreatePage = () => {
   return (
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
-        <h1 className="text-2xl">Name your course</h1>
-        <p className="text-sm text-slate-600">
-          What would you like to name your course? Don&apos;t worry, you can
-          change this later.
-        </p>
+        <h1 className="text-2xl">{t("title")}</h1>
+        <p className="text-sm text-slate-600">{t("description")}</p>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -66,17 +64,15 @@ const CreatePage = () => {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Course title</FormLabel>
+                  <FormLabel>{t("courseTitle")}</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'Advanced web development'"
+                      placeholder={t("nameExample")}
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
-                    What will you teach in this course?
-                  </FormDescription>
+                  <FormDescription>{t("whatToTeach")}</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -84,11 +80,11 @@ const CreatePage = () => {
             <div className="flex items-center gap-x-2">
               <Link href="/">
                 <Button type="button" variant="ghost">
-                  Cancel
+                  {t("cancelBtn")}
                 </Button>
               </Link>
               <Button type="submit" disabled={!isValid || isSubmitting}>
-                Continue
+                {t("continueBtn")}
               </Button>
             </div>
           </form>

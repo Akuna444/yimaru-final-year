@@ -23,6 +23,59 @@
     "bannerCompleted": "You already finished this chapter",
     "bannerPurchase": "You have to purchase first"
   },
+  "CourseTable": {
+    "newCourse": "New course",
+    "filterCourse": "Filter course...",
+    "noResult": "No Result",
+    "previous": "Previous",
+    "next": "Next",
+    "title": "Title",
+    "price": "Price",
+    "published": "Published",
+    "edit": "Edit"
+  },
+
+  "CourseCreate": {
+    "requiredFeild": "This field is required",
+    "title": "Name your course",
+    "description": "What would you like to name your course? Don't worry, you can change this later.",
+    "whatToTeach": "What will you teach in this course?",
+    "courseTitle": "Course title",
+    "cancelBtn": "Cancel",
+    "continueBtn": "Continue",
+    "nameExample": "e.g Advanced Web Development"
+  },
+
+  "CourseSetup": {
+    "mainTitle": "Course Title",
+    "mainSubtitle": "Complete All Fields",
+    "headerCustomize": "Customize your course",
+    "courseTitle": "Course Title",
+    "editTitle": "Edit Title",
+    "titleDescription": "Course Description",
+    "noDescription": "No description",
+    "editDescription": "Edit Description",
+    "titleImage": "Course Image",
+    "editImage": "Add image",
+    "titleCategory": "Course Category",
+    "noCategory": "No Category",
+    "headerChapter": "Course chapter",
+    "titleChapter": "Course chapter",
+    "subtitleChapter": "Drag and drop to add chapters",
+    "headerPrice": "Sell your course",
+    "titlePrice": "Course price",
+    "noPrice": "No price",
+    "headerAttachment": "Resource & Attachment",
+    "titleAttachment": "Course Attachment",
+    "noAttachment": "No attachment",
+    "unpublish": "This course is unpublished. It will not be visible to the students."
+  },
+
+  "Analytics": {
+    "revenue": "Total Revenue",
+    "sales": "Total Sales"
+  },
+
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, am {አማርኛ} en {English} other {Unknown}}"
