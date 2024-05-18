@@ -22,6 +22,7 @@ export default function LocaleLayout({
   params: any;
 }) {
   const messages = useMessages();
+
   return (
     <ClerkProvider>
       <html lang={locale}>
