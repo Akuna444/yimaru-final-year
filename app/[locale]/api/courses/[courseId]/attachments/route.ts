@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
-import { OpenAIEmbeddings } from "@langchain/openai";
+import { CohereEmbeddings } from "@langchain/cohere";
 import { PineconeStore } from "@langchain/pinecone";
 import { Pinecone } from "@pinecone-database/pinecone";
 
@@ -62,12 +62,19 @@ export async function POST(
 
       // vectorize and index entire document
       const pinecone = new Pinecone();
-      const pineconeIndex = pinecone.Index("quill");
+      const pineconeIndex = pinecone.Index("yimaru");
 
-      await PineconeStore.fromDocuments(pageLevelDocs, new OpenAIEmbeddings(), {
-        pineconeIndex,
-        maxConcurrency: 5, // Maximum number of batch requests to allow at once. Each batch is 1000 vectors.
-      });
+      await PineconeStore.fromDocuments(
+        pageLevelDocs,
+        new CohereEmbeddings({
+          apiKey: process.env.COHERE_API_KEY,
+          batchSize: 48,
+        }),
+        {
+          pineconeIndex,
+          maxConcurrency: 5, // Maximum number of batch requests to allow at once. Each batch is 1000 vectors.
+        }
+      );
 
       await db.attachment.update({
         data: {

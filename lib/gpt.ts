@@ -1,7 +1,7 @@
-import OpenAI from "openai";
+import Groq from "groq-sdk";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 interface OutputFormat {
@@ -14,7 +14,7 @@ export async function strict_output(
   output_format: OutputFormat,
   default_category: string = "",
   output_value_only: boolean = false,
-  model: string = "gpt-3.5-turbo",
+  model: string = "mixtral-8x7b-32768",
   temperature: number = 1,
   num_tries: number = 3,
   verbose: boolean = false
@@ -53,8 +53,8 @@ export async function strict_output(
       output_format_prompt += `\nGenerate a list of json, one json for each input element.`;
     }
 
-    // Use OpenAI to get a response
-    const response = await openai.chat.completions.create({
+    // Use groqAIto get a response
+    const response = await groq.chat.completions.create({
       temperature: temperature,
       model: model,
       messages: [
@@ -65,6 +65,8 @@ export async function strict_output(
         { role: "user", content: user_prompt.toString() },
       ],
     });
+
+    console.log(response.choices[0].message?.content, "response +>");
 
     let res: string =
       response.choices[0].message?.content?.replace(/'/g, '"') ?? "";

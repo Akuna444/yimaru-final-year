@@ -1,8 +1,8 @@
 import { db } from "@/lib/db";
-import { openai } from "@/lib/openai";
+import { groq } from "@/lib/groq";
 import { SendMessageValidator } from "@/lib/validators/SendMessageValidator";
 import { auth } from "@clerk/nextjs/server";
-import { OpenAIEmbeddings } from "@langchain/openai";
+import { CohereEmbeddings } from "@langchain/cohere";
 import { PineconeStore } from "@langchain/pinecone";
 import { Pinecone } from "@pinecone-database/pinecone";
 import { NextRequest } from "next/server";
@@ -41,10 +41,10 @@ export const POST = async (req: NextRequest) => {
 
   const pinecone = new Pinecone();
 
-  const pineconeIndex = pinecone.Index("quill");
+  const pineconeIndex = pinecone.Index("yimaru");
 
   const vectorStore = await PineconeStore.fromExistingIndex(
-    new OpenAIEmbeddings(),
+    new CohereEmbeddings({ apiKey: process.env.COHERE_API_KEY, batchSize: 48 }),
     { pineconeIndex }
   );
 
@@ -65,8 +65,8 @@ export const POST = async (req: NextRequest) => {
     content: msg.text,
   }));
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+  const response = await groq.chat.completions.create({
+    model: "mixtral-8x7b-32768",
     temperature: 0,
     stream: true,
     messages: [
