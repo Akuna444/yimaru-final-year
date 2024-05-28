@@ -52,12 +52,17 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
       name: "asc",
     },
   });
-
   if (categories.length === 0) {
-    await db.category.create({
-      data: {
-        name: "All",
-      },
+    const categories_list = [
+      { name: "Web Development" },
+      { name: "Graphics Design" },
+      { name: "Mobile Development" },
+      { name: "Electrical Engineering" },
+    ];
+
+    await db.category.createMany({
+      data: categories_list,
+      skipDuplicates: true,
     });
   }
 
