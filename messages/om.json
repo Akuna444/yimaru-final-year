@@ -1,0 +1,84 @@
+{
+  "Index": {
+    "inProgress": "Addemssa irra Jira",
+    "completed": "Xumurameera",
+    "chapters": "Boqoonalee",
+    "courseLength": "Barnoottoota",
+    "noCourseFound": "Barnoonii hin Jiruu"
+  },
+  "Nav": {
+    "teacherMode": "Barsiisaa ta'ii",
+    "quizHistory": "Seenaa Shaakalaa",
+    "exit": "bahii",
+    "dashboard": "Daashboordii",
+    "browse": "Barbaadii",
+    "course": "Barnoottoota",
+    "analytics": "Xiinxalii"
+  },
+  "Course": {
+    "percentageComplete": "Xumurameera",
+    "chatWithYimaru": "YimaruAI waliin haasa'aa",
+    "quizWithYimaru": "YimaruAI waliin  Shaakalii",
+    "notCompleted": "Hin Xumuramnee",
+    "markAsCompleted": "Akka Xumurameera Laka'ii",
+    "bannerCompleted": "Boqoonaan Kun Dhumeera",
+    "bannerPurchase": "Barnoottoota Kan Bituu Qabda"
+  },
+  "CourseTable": {
+    "newCourse": "Barnoota Haraa",
+    "filterCourse": "Barnoota Calalii...",
+    "noResult": "Firiin Hin Jiruu",
+    "previous": "Deebi'ii",
+    "next": "Itti Ani'ii",
+    "title": "Mata Duree",
+    "price": "Qarshii",
+    "published": "Maxxansii",
+    "edit": "Guulaalii"
+  },
+
+  "CourseCreate": {
+    "requiredFeild": "Iddo'n Kun ni barbaadama",
+    "title": "Mata duree barnoottaa galchii",
+    "description": "Barnoottaa kan mata duree malii itti keenuu barbaada ?",
+    "whatToTeach": "Maal barsiistaa ?",
+    "courseTitle": "Mata Duree Barnootaa ?",
+    "cancelBtn": "Balessii",
+    "continueBtn": "itti fuufii",
+    "nameExample": "e.g Advanced Web Development"
+  },
+
+  "CourseSetup": {
+    "mainTitle": "Mata Duree",
+    "mainSubtitle": "Bakee hundaa Xumurii",
+    "headerCustomize": "Barnootaa Kee Guulaalii",
+    "courseTitle": "Mata Duree Barnootaa",
+    "editTitle": "Mata Duree Guulaalii",
+    "titleDescription": "Barnootaa Ibsii",
+    "noDescription": "Ibsii Hin Jiruu",
+    "editDescription": "Ibsa Guulaalii",
+    "titleImage": "Fakkii Barnootaa",
+    "editImage": "Fakkii galchii",
+    "titleCategory": "Ramadii Barnootaa",
+    "noCategory": "Ramadii Hin Jiruu",
+    "headerChapter": "Boqoonalee",
+    "titleChapter": "Boqoonalee Barnootaa",
+    "subtitleChapter": "Fakki Galchii",
+    "headerPrice": "Barnootaa Kee Gurguurii",
+    "titlePrice": "Qarshii barnootaa",
+    "noPrice": "Qarshii Hin ibsamnee",
+    "headerAttachment": "Maxxansoota",
+    "titleAttachment": "Maxxansaalee Barnootaa",
+    "noAttachment": "Maxxansii Hin Jiruu",
+    "unpublish": "Barnoonii Kun Hin Maxxanfamnee."
+  },
+
+  "Analytics": {
+    "revenue": "Galii Walii Galaa",
+    "sales": "Gurguursa Walii Galaa"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, am {አማርኛ} en {English} om {Afan Oromo} other {Unknown}}"
+  }
+}

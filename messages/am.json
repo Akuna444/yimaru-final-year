@@ -2,6 +2,7 @@
   "Index": {
     "inProgress": "በሂደት ለይ ያሉ",
     "completed": "የተጠናቀቁ",
+    "chapters": "ምእራፎች",
     "courseLength": "ኮርሶች",
     "noCourseFound": "ምንም ኮርሶች እልተገኙም"
   },
@@ -74,6 +75,6 @@
 
   "LocaleSwitcher": {
     "label": "ቁንቋ ይቀይሩ",
-    "locale": "{locale, select, am {et አማርኛ} en {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, am {አማርኛ} en {English} om {Afan Oromo} other {Unknown}}"
   }
 }

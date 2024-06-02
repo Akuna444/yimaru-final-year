@@ -3,6 +3,7 @@
     "inProgress": "In progress",
     "completed": "Completed",
     "courseLength": "Courses",
+    "chapters": "Chapters",
     "noCourseFound": "No Courses Found"
   },
   "Nav": {
@@ -78,6 +79,6 @@
 
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, am {አማርኛ} en {English} other {Unknown}}"
+    "locale": "{locale, select, am {አማርኛ} en {English} om {Afan Oromo} other {Unknown}}"
   }
 }

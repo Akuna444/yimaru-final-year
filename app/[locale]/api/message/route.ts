@@ -39,7 +39,7 @@ export const POST = async (req: NextRequest) => {
     },
   });
 
-  if (locale === "am") {
+  if (locale !== "en") {
     const res = await translate(message, { to: "en" });
     message = res.text;
   }
@@ -105,8 +105,8 @@ export const POST = async (req: NextRequest) => {
 
   const stream = OpenAIStream(response, {
     async onCompletion(completion) {
-      if (locale === "am") {
-        const res = await translate(completion, { to: "am" });
+      if (locale !== "en") {
+        const res = await translate(completion, { to: locale });
         completion = res.text;
       }
       await db.message.create({
