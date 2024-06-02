@@ -6,19 +6,21 @@ import { CohereEmbeddings } from "@langchain/cohere";
 import { PineconeStore } from "@langchain/pinecone";
 import { Pinecone } from "@pinecone-database/pinecone";
 import { NextRequest } from "next/server";
-
+import translate from "google-translate-api-next";
+import { getLocale } from "next-intl/server";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 
 export const POST = async (req: NextRequest) => {
   // endpoint for asking a question to a pdf file
 
   const body = await req.json();
+  const locale = await getLocale();
 
   const { userId } = auth();
 
   if (!userId) return new Response("Unauthorized", { status: 401 });
 
-  const { attachmentId, message } = SendMessageValidator.parse(body);
+  let { attachmentId, message } = SendMessageValidator.parse(body);
 
   const file = await db.attachment.findFirst({
     where: {
@@ -37,10 +39,14 @@ export const POST = async (req: NextRequest) => {
     },
   });
 
+  if (locale === "am") {
+    const res = await translate(message, { to: "en" });
+    message = res.text;
+  }
+
   // 1: vectorize message
 
   const pinecone = new Pinecone();
-
   const pineconeIndex = pinecone.Index("yimaru");
 
   const vectorStore = await PineconeStore.fromExistingIndex(
@@ -99,6 +105,10 @@ export const POST = async (req: NextRequest) => {
 
   const stream = OpenAIStream(response, {
     async onCompletion(completion) {
+      if (locale === "am") {
+        const res = await translate(completion, { to: "am" });
+        completion = res.text;
+      }
       await db.message.create({
         data: {
           text: completion,

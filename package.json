@@ -52,6 +52,7 @@
     "date-fns": "^3.6.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.12",
+    "google-translate-api-next": "^0.1.0",
     "groq-sdk": "^0.4.0",
     "keyword-extractor": "^0.0.28",
     "langchain": "^0.1.36",
