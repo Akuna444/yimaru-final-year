@@ -1,6 +1,6 @@
 
-
-Key Features:
+##Yimaru LMS 
+Key Features: 
 
 - Browse & Filter Courses
 - Purchase Courses using Stripe
