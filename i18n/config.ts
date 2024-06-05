@@ -5,6 +5,7 @@ export const host = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : `http://localhost:${port}`;
 
+//ADD Language locale navigation
 export const defaultLocale = "en" as const;
 export const locales = ["en", "am", "om"] as const;
 
