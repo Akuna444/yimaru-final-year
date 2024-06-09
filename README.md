@@ -1,5 +1,5 @@
 
-###Yimaru LMS 
+#Yimaru LMS 
 Key Features: 
 
 - Browse & Filter Courses
