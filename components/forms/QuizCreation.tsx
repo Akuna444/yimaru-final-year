@@ -102,6 +102,32 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="amount"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Number of Questions</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="How many questions?"
+                        type="number"
+                        {...field}
+                        onChange={(e) => {
+                          form.setValue("amount", parseInt(e.target.value));
+                        }}
+                        min={5}
+                        max={20}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      You can choose how many questions you would like to be
+                      quizzed on here.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <div className="flex justify-between">
                 <Button
                   type="button"
