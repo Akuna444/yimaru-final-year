@@ -3,7 +3,7 @@ import createMiddleware from "next-intl/middleware";
 
 const intlMiddleware = createMiddleware({
   locales: ["en", "am", "om"],
-  defaultLocale: "en",
+  defaultLocale: "am",
 });
 
 const isPublicRoute = createRouteMatcher([
